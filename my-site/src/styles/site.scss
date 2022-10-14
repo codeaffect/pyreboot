@@ -1,0 +1,17 @@
+:root {
+  --purple-gr-color: linear-gradient(to right, #be93d6, #9450b8);
+  --yellow-gr-color: linear-gradient(to right, #cdcba6, #a49a18);
+  --orange-gr-color: linear-gradient(to right, #dcc3a1, #d7973d);
+}
+body {
+  width: 99vw;
+}
+.body-purple {
+  background-image: var(--purple-gr-color);
+}
+.body-orange {
+  background-image: var(--orange-gr-color);
+}
+.body-yellow {
+  background-image: var(--yellow-gr-color);
+}
