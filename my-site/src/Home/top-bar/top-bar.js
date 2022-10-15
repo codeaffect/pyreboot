@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
 
 class TopBar extends Component {
   constructor() {
@@ -6,13 +8,14 @@ class TopBar extends Component {
     this.state = {
       theme: "white",
     };
+    this.clearBodyStyles();
   }
 
   handleThemeChange = (e) => {
     this.setState(
-      () => ({
+      {
         theme: e.target.value,
-      }),
+      },
       () => {
         this.changeTheme(this.state.theme);
       }
@@ -41,9 +44,11 @@ class TopBar extends Component {
   };
 
   clearBodyStyles = () => {
-    document.body.classList.remove("body-purple");
-    document.body.classList.remove("body-yellow");
-    document.body.classList.remove("body-orange");
+    var classlist = document.body.classList;
+    for (let classname of classlist) {
+      console.log("classname:-", classname);
+      document.body.classList.remove(classname);
+    }
   };
 
   render() {
@@ -52,13 +57,18 @@ class TopBar extends Component {
     return (
       <>
         <div>Select Theme</div>
-        <select value={this.state.theme} onChange={this.handleThemeChange}>
+        <Select
+          sx={{ minWidth: 200 }}
+          value={this.state.theme}
+          onChange={this.handleThemeChange}
+          displayEmpty
+        >
           {menuList.map((menu, index) => (
-            <option key={index} value={menu}>
+            <MenuItem key={index} value={menu}>
               {menu}
-            </option>
+            </MenuItem>
           ))}
-        </select>
+        </Select>
         <p>you selected - {this.state.theme}</p>
       </>
     );

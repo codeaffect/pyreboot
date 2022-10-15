@@ -1,5 +1,6 @@
 import React from "react";
 import Home from "./Home/home";
+import CustomMenuList from "./Home/top-bar/custom-menu-list";
 import TopBar from "./Home/top-bar/top-bar";
 
 const App = () => {
@@ -10,6 +11,9 @@ const App = () => {
       <br />
       <br />
       <TopBar />
+      <br />
+      <br />
+      <CustomMenuList />
     </>
   );
 };
